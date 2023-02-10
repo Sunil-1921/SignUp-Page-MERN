@@ -1,8 +1,14 @@
 const express = require("express")
+const cors = require("cors")
 const app = express()
 
-app.get('/hello', (req, res) => {
-    res.send('hello world!')
+app.use(cors())
+app.use(express.json())
+
+app.post('/api/register', (req, res) => {
+    // res.send('hello world!')
+    console.log(req.body)
+    res.json({ status: 'ok' })
 })
 
 app.listen(1337, () => {
